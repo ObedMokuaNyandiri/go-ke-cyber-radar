@@ -1,0 +1,142 @@
+{
+  "ministries": {
+    "Executive Office": {
+      "head": "President",
+      "priority": "critical",
+      "domains": ["president.go.ke"],
+      "color": "#ff003c"
+    },
+    "Parliament": {
+      "head": "Speaker of the National Assembly",
+      "priority": "critical",
+      "domains": ["parliament.go.ke"],
+      "color": "#ff6b35"
+    },
+    "Judiciary": {
+      "head": "Chief Justice",
+      "priority": "critical",
+      "domains": ["judiciary.go.ke", "kenyalaw.org"],
+      "color": "#a855f7"
+    },
+    "National Treasury": {
+      "head": "Cabinet Secretary",
+      "priority": "critical",
+      "domains": ["treasury.go.ke", "kra.go.ke", "centralbank.go.ke", "tenders.go.ke"],
+      "color": "#ffaa00"
+    },
+    "Health": {
+      "head": "Cabinet Secretary",
+      "priority": "high",
+      "domains": ["health.go.ke", "nhif.or.ke"],
+      "color": "#00ff88"
+    },
+    "Education": {
+      "head": "Cabinet Secretary",
+      "priority": "high",
+      "domains": ["education.go.ke"],
+      "color": "#3b82f6"
+    },
+    "Interior & Security": {
+      "head": "Cabinet Secretary",
+      "priority": "critical",
+      "domains": ["interior.go.ke", "nps.go.ke"],
+      "color": "#ff003c"
+    },
+    "Defence": {
+      "head": "Cabinet Secretary",
+      "priority": "critical",
+      "domains": ["defence.go.ke"],
+      "color": "#ff003c"
+    },
+    "Foreign Affairs": {
+      "head": "Cabinet Secretary",
+      "priority": "high",
+      "domains": ["foreignaffairs.go.ke"],
+      "color": "#00f0ff"
+    },
+    "ICT & Digital Economy": {
+      "head": "Cabinet Secretary",
+      "priority": "high",
+      "domains": ["ict.go.ke", "icta.go.ke", "communication.go.ke", "hudumakenya.go.ke", "ecitizen.go.ke", "opendata.go.ke"],
+      "color": "#00f0ff"
+    },
+    "Transport & Infrastructure": {
+      "head": "Cabinet Secretary",
+      "priority": "medium",
+      "domains": ["transport.go.ke", "ntsa.go.ke"],
+      "color": "#94a3b8"
+    },
+    "Lands & Housing": {
+      "head": "Cabinet Secretary",
+      "priority": "medium",
+      "domains": ["lands.go.ke"],
+      "color": "#94a3b8"
+    },
+    "Environment & Forestry": {
+      "head": "Cabinet Secretary",
+      "priority": "medium",
+      "domains": ["environment.go.ke", "nema.go.ke"],
+      "color": "#00ff88"
+    },
+    "Agriculture": {
+      "head": "Cabinet Secretary",
+      "priority": "medium",
+      "domains": ["agriculture.go.ke"],
+      "color": "#00ff88"
+    },
+    "Trade & Industry": {
+      "head": "Cabinet Secretary",
+      "priority": "medium",
+      "domains": ["industrialization.go.ke"],
+      "color": "#ffaa00"
+    },
+    "Labour & Social Protection": {
+      "head": "Cabinet Secretary",
+      "priority": "medium",
+      "domains": ["labour.go.ke", "nssf.or.ke"],
+      "color": "#3b82f6"
+    },
+    "Energy & Petroleum": {
+      "head": "Cabinet Secretary",
+      "priority": "high",
+      "domains": ["energy.go.ke", "epra.go.ke"],
+      "color": "#ffaa00"
+    },
+    "Mining & Blue Economy": {
+      "head": "Cabinet Secretary",
+      "priority": "low",
+      "domains": ["mining.go.ke"],
+      "color": "#64748b"
+    },
+    "Tourism & Wildlife": {
+      "head": "Cabinet Secretary",
+      "priority": "low",
+      "domains": ["tourism.go.ke"],
+      "color": "#00ff88"
+    },
+    "Sports & Culture": {
+      "head": "Cabinet Secretary",
+      "priority": "low",
+      "domains": ["sports.go.ke"],
+      "color": "#a855f7"
+    },
+    "Water & Sanitation": {
+      "head": "Cabinet Secretary",
+      "priority": "medium",
+      "domains": ["water.go.ke"],
+      "color": "#3b82f6"
+    },
+    "Attorney General": {
+      "head": "Attorney General",
+      "priority": "critical",
+      "domains": ["statelaw.go.ke"],
+      "color": "#ff6b35"
+    },
+    "Independent Commission": {
+      "head": "Chairperson",
+      "priority": "high",
+      "domains": ["iebc.or.ke"],
+      "color": "#a855f7"
+    }
+  }
+}

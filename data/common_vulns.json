@@ -1,0 +1,69 @@
+{
+  "server_vulns": {
+    "Apache/2.2": [
+      {"cve": "CVE-2017-9798", "severity": "HIGH", "title": "Optionsbleed - Apache HTTP Server memory leak", "cvss": 7.5},
+      {"cve": "CVE-2017-3169", "severity": "CRITICAL", "title": "Apache mod_ssl NULL pointer dereference", "cvss": 9.8}
+    ],
+    "Apache/2.4.6": [
+      {"cve": "CVE-2021-44790", "severity": "CRITICAL", "title": "Apache HTTP Server buffer overflow in mod_lua", "cvss": 9.8},
+      {"cve": "CVE-2021-41773", "severity": "CRITICAL", "title": "Apache HTTP Server path traversal", "cvss": 9.8}
+    ],
+    "Apache/2.4.10": [
+      {"cve": "CVE-2019-0211", "severity": "HIGH", "title": "Apache HTTP Server privilege escalation", "cvss": 7.8}
+    ],
+    "Apache/2.4.18": [
+      {"cve": "CVE-2019-0211", "severity": "HIGH", "title": "Apache HTTP Server privilege escalation", "cvss": 7.8},
+      {"cve": "CVE-2020-1927", "severity": "MEDIUM", "title": "Apache mod_rewrite open redirect", "cvss": 6.1}
+    ],
+    "Apache/2.4.29": [
+      {"cve": "CVE-2021-44790", "severity": "CRITICAL", "title": "Buffer overflow in mod_lua multipart parser", "cvss": 9.8}
+    ],
+    "nginx/1.14": [
+      {"cve": "CVE-2019-9511", "severity": "HIGH", "title": "HTTP/2 Data Dribble DoS", "cvss": 7.5},
+      {"cve": "CVE-2019-9513", "severity": "HIGH", "title": "HTTP/2 Resource Loop DoS", "cvss": 7.5}
+    ],
+    "nginx/1.16": [
+      {"cve": "CVE-2021-23017", "severity": "CRITICAL", "title": "nginx DNS resolver off-by-one heap write", "cvss": 9.4}
+    ],
+    "nginx/1.18": [
+      {"cve": "CVE-2021-23017", "severity": "CRITICAL", "title": "nginx DNS resolver vulnerability", "cvss": 9.4}
+    ],
+    "IIS/7.5": [
+      {"cve": "CVE-2017-7269", "severity": "CRITICAL", "title": "IIS WebDAV buffer overflow RCE", "cvss": 9.8}
+    ],
+    "IIS/8.0": [
+      {"cve": "CVE-2015-1635", "severity": "CRITICAL", "title": "HTTP.sys remote code execution", "cvss": 10.0}
+    ],
+    "PHP/5": [
+      {"cve": "CVE-2019-11043", "severity": "CRITICAL", "title": "PHP-FPM buffer underflow RCE", "cvss": 9.8},
+      {"cve": "CVE-2016-5385", "severity": "HIGH", "title": "PHP HTTPoxy vulnerability", "cvss": 8.1}
+    ],
+    "PHP/7.0": [
+      {"cve": "CVE-2019-11043", "severity": "CRITICAL", "title": "PHP-FPM RCE via env_path_info", "cvss": 9.8}
+    ],
+    "PHP/7.2": [
+      {"cve": "CVE-2019-11043", "severity": "CRITICAL", "title": "PHP-FPM RCE", "cvss": 9.8}
+    ],
+    "OpenSSL/1.0": [
+      {"cve": "CVE-2016-2107", "severity": "HIGH", "title": "OpenSSL Padding Oracle in AES-NI CBC", "cvss": 8.2},
+      {"cve": "CVE-2014-0160", "severity": "CRITICAL", "title": "Heartbleed", "cvss": 9.8}
+    ],
+    "OpenSSL/1.1.0": [
+      {"cve": "CVE-2020-1971", "severity": "HIGH", "title": "OpenSSL GENERAL_NAME_cmp NULL deref DoS", "cvss": 7.5}
+    ]
+  },
+  "port_vulns": {
+    "21": {"risk": "HIGH", "title": "FTP service exposed - credentials may be transmitted in plaintext"},
+    "23": {"risk": "CRITICAL", "title": "Telnet service exposed - all data including credentials sent unencrypted"},
+    "445": {"risk": "CRITICAL", "title": "SMB service exposed - target for EternalBlue and ransomware"},
+    "1433": {"risk": "CRITICAL", "title": "Microsoft SQL Server directly exposed to internet"},
+    "3306": {"risk": "CRITICAL", "title": "MySQL database directly exposed to internet"},
+    "3389": {"risk": "HIGH", "title": "Remote Desktop Protocol exposed - target for brute-force attacks"},
+    "5432": {"risk": "CRITICAL", "title": "PostgreSQL database directly exposed to internet"},
+    "5900": {"risk": "HIGH", "title": "VNC remote access exposed - weak authentication common"},
+    "6379": {"risk": "CRITICAL", "title": "Redis instance exposed - often runs without authentication"},
+    "9200": {"risk": "HIGH", "title": "Elasticsearch exposed - may contain sensitive indexed data"},
+    "11211": {"risk": "HIGH", "title": "Memcached exposed - can be abused for DDoS amplification"},
+    "27017": {"risk": "CRITICAL", "title": "MongoDB exposed - default config has no authentication"}
+  }
+}
