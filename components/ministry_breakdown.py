@@ -123,57 +123,26 @@ def _render_ministry_card(name: str, data: Dict[str, Any]) -> None:
     # Risk bar width
     bar_width = min(avg_risk, 100)
 
-    st.markdown(f"""
-    <div class="ministry-card">
-        <div class="ministry-name">{name}</div>
-        <div class="ministry-domains">{domains_list}</div>
-
-        <div style="margin-top: 12px; display: flex; justify-content: space-between; align-items: flex-end;">
-            <div class="ministry-risk" style="color: {color};">{avg_risk:.0f}</div>
-            <div style="
-                font-family: 'JetBrains Mono', monospace;
-                font-size: 0.65rem;
-                color: #64748b;
-                text-align: right;
-            ">
-                {domain_count} domains<br>
-                {finding_count} findings
-            </div>
-        </div>
-
-        <!-- Risk bar -->
-        <div style="
-            width: 100%;
-            height: 4px;
-            background: #1e293b;
-            border-radius: 2px;
-            margin-top: 8px;
-            overflow: hidden;
-        ">
-            <div style="
-                width: {bar_width}%;
-                height: 100%;
-                background: {color};
-                border-radius: 2px;
-                transition: width 0.5s ease;
-                box-shadow: 0 0 8px {color}80;
-            "></div>
-        </div>
-
-        <!-- Mini stats -->
-        <div style="
-            display: flex;
-            gap: 12px;
-            margin-top: 10px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.62rem;
-            color: #64748b;
-        ">
-            <span>SSL Issues: <span style="color: {'#ff003c' if ssl_issues > 0 else '#00ff88'};">{ssl_issues}</span></span>
-            <span>Exposed: <span style="color: {'#ff003c' if exposed_ports > 0 else '#00ff88'};">{exposed_ports}</span></span>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+    html_content = (
+        f"<div class='ministry-card'>"
+        f"<div class='ministry-name'>{name}</div>"
+        f"<div class='ministry-domains'>{domains_list}</div>"
+        f"<div style='margin-top: 12px; display: flex; justify-content: space-between; align-items: flex-end;'>"
+        f"<div class='ministry-risk' style='color: {color};'>{avg_risk:.0f}</div>"
+        f"<div style=\"font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: #64748b; text-align: right;\">"
+        f"{domain_count} domains<br>{finding_count} findings"
+        f"</div>"
+        f"</div>"
+        f"<div style='width: 100%; height: 4px; background: #1e293b; border-radius: 2px; margin-top: 8px; overflow: hidden;'>"
+        f"<div style='width: {bar_width}%; height: 100%; background: {color}; border-radius: 2px; transition: width 0.5s ease; box-shadow: 0 0 8px {color}80;'></div>"
+        f"</div>"
+        f"<div style=\"display: flex; gap: 12px; margin-top: 10px; font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; color: #64748b;\">"
+        f"<span>SSL Issues: <span style=\"color: {'#ff003c' if ssl_issues > 0 else '#00ff88'};\">{ssl_issues}</span></span>"
+        f"<span>Exposed: <span style=\"color: {'#ff003c' if exposed_ports > 0 else '#00ff88'};\">{exposed_ports}</span></span>"
+        f"</div>"
+        f"</div>"
+    )
+    st.markdown(html_content, unsafe_allow_html=True)
 
     # Small spacing between cards
     st.markdown("<div style='height: 12px;'></div>", unsafe_allow_html=True)
