@@ -22,7 +22,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 # ── Page Configuration (must be first Streamlit call) ─────────────────────────
 st.set_page_config(
     page_title=".GO.KE Cyber-Surface Radar",
-    page_icon="[•]",
+    page_icon="🛡️",
     layout="wide",
     initial_sidebar_state="expanded",
 )
