@@ -5,3 +5,4 @@ shodan>=1.28.0
 dnspython>=2.4.0
 requests>=2.31.0
 python-dateutil>=2.8.0
+python-dotenv>=1.0.0
