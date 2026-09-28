@@ -62,24 +62,7 @@ def render_threat_feed(threats: List[Dict[str, Any]], max_items: int = 50) -> No
         # Truncate timestamp for display
         time_short = timestamp.split(" ")[1] if " " in timestamp else timestamp[:8]
 
-        item_html = f"""
-        <div class="threat-item {level}">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                <div style="flex: 1;">
-                    <span class="threat-timestamp">{time_short}</span>
-                    <span class="threat-badge badge-{level}">{threat.get('level', 'INFO')}</span>
-                    <span style="margin-left: 2px;">{icon}</span>
-                </div>
-            </div>
-            <div style="margin-top: 4px;">
-                <strong style="color: #e2e8f0; font-size: 0.75rem;">{domain}</strong>
-                <span style="color: #94a3b8; font-size: 0.72rem;"> — {title}</span>
-            </div>
-            <div style="color: #64748b; font-size: 0.68rem; margin-top: 2px;">
-                {detail}
-            </div>
-        </div>
-        """
+        item_html = f"""<div class="threat-item {level}"><div style="display: flex; justify-content: space-between; align-items: flex-start;"><div style="flex: 1;"><span class="threat-timestamp">{time_short}</span><span class="threat-badge badge-{level}">{threat.get('level', 'INFO')}</span><span style="margin-left: 2px;">{icon}</span></div></div><div style="margin-top: 4px;"><strong style="color: #e2e8f0; font-size: 0.75rem;">{domain}</strong><span style="color: #94a3b8; font-size: 0.72rem;"> — {title}</span></div><div style="color: #64748b; font-size: 0.68rem; margin-top: 2px;">{detail}</div></div>"""
         feed_items.append(item_html)
 
     # Feed summary bar
@@ -87,34 +70,12 @@ def render_threat_feed(threats: List[Dict[str, Any]], max_items: int = 50) -> No
     high = sum(1 for t in threats if t.get("level") == "HIGH")
     medium = sum(1 for t in threats if t.get("level") == "MEDIUM")
 
-    summary_html = f"""
-    <div style="
-        display: flex;
-        gap: 12px;
-        padding: 8px 12px;
-        margin-bottom: 8px;
-        background: rgba(10, 14, 23, 0.6);
-        border-radius: 6px;
-        border: 1px solid #1e293b;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.68rem;
-    ">
-        <span style="color: #64748b;">TOTAL: <strong style="color: #e2e8f0;">{len(threats)}</strong></span>
-        <span style="color: #ff003c;">CRIT: <strong>{critical}</strong></span>
-        <span style="color: #ff6b35;">HIGH: <strong>{high}</strong></span>
-        <span style="color: #ffaa00;">MED: <strong>{medium}</strong></span>
-    </div>
-    """
+    summary_html = f"""<div style="display: flex; gap: 12px; padding: 8px 12px; margin-bottom: 8px; background: rgba(10, 14, 23, 0.6); border-radius: 6px; border: 1px solid #1e293b; font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;"><span style="color: #64748b;">TOTAL: <strong style="color: #e2e8f0;">{len(threats)}</strong></span><span style="color: #ff003c;">CRIT: <strong>{critical}</strong></span><span style="color: #ff6b35;">HIGH: <strong>{high}</strong></span><span style="color: #ffaa00;">MED: <strong>{medium}</strong></span></div>"""
 
     # Combine into scrollable feed
-    all_items_html = "\n".join(feed_items)
+    all_items_html = "".join(feed_items)
 
-    st.markdown(f"""
-    {summary_html}
-    <div class="threat-feed">
-        {all_items_html}
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown(f"""{summary_html}<div class="threat-feed">{all_items_html}</div>""", unsafe_allow_html=True)
 
 
 def render_threat_detail(threat: Dict[str, Any]) -> None:
@@ -122,52 +83,4 @@ def render_threat_detail(threat: Dict[str, Any]) -> None:
     level = threat.get("level", "INFO")
     color = threat.get("color", "#64748b")
 
-    st.markdown(f"""
-    <div style="
-        background: #0f1923;
-        border: 1px solid {color}33;
-        border-left: 4px solid {color};
-        border-radius: 8px;
-        padding: 16px;
-        margin-bottom: 12px;
-    ">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="
-                font-family: 'Inter', sans-serif;
-                font-weight: 600;
-                font-size: 0.9rem;
-                color: #e2e8f0;
-            ">{threat.get('icon', '[!]')} {threat.get('title', 'Unknown')}</span>
-            <span class="threat-badge badge-{level.lower()}">{level}</span>
-        </div>
-
-        <div style="
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: #94a3b8;
-            margin-bottom: 8px;
-        ">
-            <strong style="color: #00f0ff;">{threat.get('domain', 'unknown')}</strong>
-            — {threat.get('ministry', 'Unknown Ministry')}
-        </div>
-
-        <div style="
-            font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
-            color: #94a3b8;
-            margin-bottom: 12px;
-        ">{threat.get('detail', '')}</div>
-
-        <div style="
-            background: rgba(0, 240, 255, 0.05);
-            border: 1px solid rgba(0, 240, 255, 0.1);
-            border-radius: 6px;
-            padding: 10px 12px;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
-            color: #00f0ff;
-        ">
-            <strong>[i] Remediation:</strong> {threat.get('remediation', 'Review and remediate.')}
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown(f"""<div style="background: #0f1923; border: 1px solid {color}33; border-left: 4px solid {color}; border-radius: 8px; padding: 16px; margin-bottom: 12px;"><div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;"><span style="font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.9rem; color: #e2e8f0;">{threat.get('icon', '[!]')} {threat.get('title', 'Unknown')}</span><span class="threat-badge badge-{level.lower()}">{level}</span></div><div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #94a3b8; margin-bottom: 8px;"><strong style="color: #00f0ff;">{threat.get('domain', 'unknown')}</strong> — {threat.get('ministry', 'Unknown Ministry')}</div><div style="font-family: 'Inter', sans-serif; font-size: 0.8rem; color: #94a3b8; margin-bottom: 12px;">{threat.get('detail', '')}</div><div style="background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.1); border-radius: 6px; padding: 10px 12px; font-family: 'Inter', sans-serif; font-size: 0.75rem; color: #00f0ff;"><strong>[i] Remediation:</strong> {threat.get('remediation', 'Review and remediate.')}</div></div>""", unsafe_allow_html=True)

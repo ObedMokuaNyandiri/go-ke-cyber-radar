@@ -122,7 +122,7 @@ def render_risk_gauge(national_risk: Dict[str, Any]) -> None:
 <!-- Background arc -->
 <path d="M 30 140 A 120 120 0 0 1 270 140" fill="none" stroke="#1e293b" stroke-width="16" stroke-linecap="round"/>
 <!-- Score arc -->
-<path d="M 30 140 A 120 120 0 {large_arc} 1 {end_x:.1f} {end_y:.1f}" fill="none" stroke="{gauge_color}" stroke-width="16" stroke-linecap="round" style="filter: drop-shadow(0 0 8px {gauge_color}80);">
+<path d="M 30 140 A 120 120 0 {large_arc} 1 {end_x:.1f} {end_y:.1f}" fill="none" stroke="{gauge_color}" stroke-width="16" stroke-linecap="round" style="filter: drop-shadow(0 0 8px {gauge_color}80);" pathLength="1000">
 <animate attributeName="stroke-dasharray" from="0 1000" to="1000 0" dur="1.5s" fill="freeze" />
 </path>
 <!-- Center score -->
