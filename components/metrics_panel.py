@@ -116,67 +116,25 @@ def render_risk_gauge(national_risk: Dict[str, Any]) -> None:
     summary_text = national_risk.get("summary", "")
     level_text = level.value if isinstance(level, RiskLevel) else str(level)
 
-    gauge_html = f"""<div style="
-    text-align: center;
-    padding: 20px;
-    background: linear-gradient(145deg, #0f1923, #1a2332);
-    border: 1px solid #1e293b;
-    border-radius: 16px;
-">
-    <div style="
-        font-family: 'Orbitron', sans-serif;
-        font-size: 0.7rem;
-        color: #64748b;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        margin-bottom: 12px;
-    ">National Cyber-Risk Index</div>
-
-    <svg viewBox="0 0 300 180" style="max-width: 280px; filter: drop-shadow({glow});">
-        <!-- Background arc -->
-        <path d="M 30 140 A 120 120 0 0 1 270 140"
-              fill="none" stroke="#1e293b" stroke-width="16" stroke-linecap="round"/>
-
-        <!-- Score arc -->
-        <path d="M 30 140 A 120 120 0 {large_arc} 1 {end_x:.1f} {end_y:.1f}"
-              fill="none" stroke="{gauge_color}" stroke-width="16" stroke-linecap="round"
-              style="filter: drop-shadow(0 0 8px {gauge_color}80);">
-            <animate attributeName="stroke-dasharray" from="0 1000" to="1000 0"
-                     dur="1.5s" fill="freeze" />
-        </path>
-
-        <!-- Center score -->
-        <text x="150" y="125" text-anchor="middle"
-              font-family="Orbitron" font-size="48" font-weight="800" fill="{gauge_color}">
-            {score}
-        </text>
-        <text x="150" y="150" text-anchor="middle"
-              font-family="Inter" font-size="13" fill="#64748b">
-            / 100
-        </text>
-
-        <!-- Scale labels -->
-        <text x="25" y="165" font-family="JetBrains Mono" font-size="10" fill="#00ff88">0</text>
-        <text x="140" y="18" font-family="JetBrains Mono" font-size="10" fill="#ffaa00">50</text>
-        <text x="268" y="165" font-family="JetBrains Mono" font-size="10" fill="#ff003c">100</text>
-    </svg>
-
-    <div style="
-        font-family: 'Orbitron', sans-serif;
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: {gauge_color};
-        margin-top: 8px;
-        letter-spacing: 2px;
-    ">GRADE: {grade}</div>
-
-    <div style="
-        font-family: 'Inter', sans-serif;
-        font-size: 0.75rem;
-        color: #94a3b8;
-        margin-top: 8px;
-        padding: 0 12px;
-    ">{summary_text}</div>
+    gauge_html = f"""<div style="text-align: center; padding: 20px; background: linear-gradient(145deg, #0f1923, #1a2332); border: 1px solid #1e293b; border-radius: 16px;">
+<div style="font-family: 'Orbitron', sans-serif; font-size: 0.7rem; color: #64748b; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 12px;">National Cyber-Risk Index</div>
+<svg viewBox="0 0 300 180" style="max-width: 280px; filter: drop-shadow({glow});">
+<!-- Background arc -->
+<path d="M 30 140 A 120 120 0 0 1 270 140" fill="none" stroke="#1e293b" stroke-width="16" stroke-linecap="round"/>
+<!-- Score arc -->
+<path d="M 30 140 A 120 120 0 {large_arc} 1 {end_x:.1f} {end_y:.1f}" fill="none" stroke="{gauge_color}" stroke-width="16" stroke-linecap="round" style="filter: drop-shadow(0 0 8px {gauge_color}80);">
+<animate attributeName="stroke-dasharray" from="0 1000" to="1000 0" dur="1.5s" fill="freeze" />
+</path>
+<!-- Center score -->
+<text x="150" y="125" text-anchor="middle" font-family="Orbitron" font-size="48" font-weight="800" fill="{gauge_color}">{score}</text>
+<text x="150" y="150" text-anchor="middle" font-family="Inter" font-size="13" fill="#64748b">/ 100</text>
+<!-- Scale labels -->
+<text x="25" y="165" font-family="JetBrains Mono" font-size="10" fill="#00ff88">0</text>
+<text x="140" y="18" font-family="JetBrains Mono" font-size="10" fill="#ffaa00">50</text>
+<text x="268" y="165" font-family="JetBrains Mono" font-size="10" fill="#ff003c">100</text>
+</svg>
+<div style="font-family: 'Orbitron', sans-serif; font-size: 1.2rem; font-weight: 700; color: {gauge_color}; margin-top: 8px; letter-spacing: 2px;">GRADE: {grade}</div>
+<div style="font-family: 'Inter', sans-serif; font-size: 0.75rem; color: #94a3b8; margin-top: 8px; padding: 0 12px;">{summary_text}</div>
 </div>"""
 
     st.markdown(gauge_html, unsafe_allow_html=True)
