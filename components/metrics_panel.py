@@ -108,6 +108,7 @@ def render_risk_gauge(national_risk: Dict[str, Any]) -> None:
     angle = (score / 100) * 180
     # SVG arc coordinates
     import math
+    import textwrap
     end_x = 150 + 120 * math.cos(math.radians(180 - angle))
     end_y = 140 - 120 * math.sin(math.radians(180 - angle))
     large_arc = 1 if angle > 90 else 0
@@ -115,7 +116,7 @@ def render_risk_gauge(national_risk: Dict[str, Any]) -> None:
     summary_text = national_risk.get("summary", "")
     level_text = level.value if isinstance(level, RiskLevel) else str(level)
 
-    gauge_html = f"""
+    gauge_html = textwrap.dedent(f"""
     <div style="
         text-align: center;
         padding: 20px;
@@ -178,7 +179,7 @@ def render_risk_gauge(national_risk: Dict[str, Any]) -> None:
             padding: 0 12px;
         ">{summary_text}</div>
     </div>
-    """
+    """)
 
     st.markdown(gauge_html, unsafe_allow_html=True)
 
