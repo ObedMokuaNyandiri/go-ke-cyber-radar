@@ -70,22 +70,7 @@ def render_sidebar_controls() -> dict:
     result["demo_mode"] = demo_mode
 
     if demo_mode:
-        st.sidebar.markdown("""
-        <div style="
-            font-family: 'Inter', sans-serif;
-            font-size: 0.72rem;
-            color: #94a3b8;
-            background: rgba(0, 240, 255, 0.05);
-            border: 1px solid rgba(0, 240, 255, 0.1);
-            border-radius: 8px;
-            padding: 10px 12px;
-            margin-top: 4px;
-        ">
-            [DEMO] <strong>Demo mode</strong> uses realistic simulated data to
-            showcase the dashboard. Toggle off and provide a Shodan API key
-            for live reconnaissance.
-        </div>
-        """, unsafe_allow_html=True)
+        pass
     else:
         # ── Shodan API Key ────────────────────────────────────────────────
         if SHODAN_API_KEY:
